@@ -21,7 +21,7 @@ def check_auth(username, password):
     """This function is called to check if a username /
     password combination is valid.
     """
-    return username == 'spradmin' and password == 'adminspr@oss'
+    return username == 'SECRET' and password == 'SECRET'
 
 def authenticate():
     """Sends a 401 response that enables basic auth"""
@@ -38,7 +38,7 @@ def requires_auth(f):
             return authenticate()
         return f(*args, **kwargs)
     return decorated
-scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
+scope = ['SECRET']
 creds = ServiceAccountCredentials.from_json_keyfile_name('data.json', scope)
 client = gspread.authorize(creds)
 sheet = client.open('Internship_Record').sheet1
@@ -50,7 +50,7 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Set up database
-engine = create_engine("postgres://ppsippjyhsuyoi:ed3084da7ee7b7d7399c545a5dcd59b014aa5b9816b19fceb81217b9348dd7b8@ec2-52-22-216-69.compute-1.amazonaws.com:5432/d9lfvu0ps3q64o")
+engine = create_engine("SECRET")
 db = scoped_session(sessionmaker(bind=engine))
 #headcode="<tr>"
 #tablebody="<tr>"
