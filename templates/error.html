@@ -1,0 +1,216 @@
+<Head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!------ Include the above in your HEAD tag ---------->
+</Head>
+<style>
+.register{
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    margin-top: 0;
+    padding: 3%;
+}
+.register-left{
+    text-align: center;
+    color: #fff;
+    margin-top: 4%;
+}
+.bg-light {
+    background: -webkit-linear-gradient(left, #009688, #009688);
+    background-image: -webkit-linear-gradient(left, rgb(0, 150, 136), rgb(0, 150, 136));
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+}
+.register {
+    background: -webkit-linear-gradient(left, #009688, #009688);
+    margin-top: 0;
+    padding: 3%;
+}
+.register-left input{
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    width: 60%;
+    background: #f8f9fa;
+    font-weight: bold;
+    color: #383d41;
+    margin-top: 30%;
+    margin-bottom: 3%;
+    cursor: pointer;
+}
+.navbar {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+    width: 1140;
+    margin-left: 105;
+}
+.register-right{
+    background: #f8f9fa;
+    border-top-left-radius: 10% 50%;
+    border-bottom-left-radius: 10% 50%;
+}
+.register-left img{
+    margin-top: 15%;
+    margin-bottom: 5%;
+    width: 25%;
+    -webkit-animation: mover 2s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+}
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+.register-left p{
+    font-weight: lighter;
+    padding: 12%;
+    margin-top: -9%;
+}
+.register .register-form{
+    padding: 10%;
+    margin-top: 10%;
+}
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: bold;
+}
+.navbar-light .navbar-nav .nav-link {color: rgba(255, 255, 255, 0.9);
+    font-weight: bold;}
+.btnRegister{
+    float: right;
+    margin-top: 10%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #009688;
+    color: #fff;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+}
+.navbar-light .navbar-brand {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: bold;
+}
+.lgn{
+    
+    margin-top: 10%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 5%;
+    background: #ffffff;
+    color: #0062cc;
+    font-weight: 600;
+    width: 80%;
+    cursor: pointer;
+}
+.register .nav-tabs{
+    margin-top: 3%;
+    border: none;
+    background: #0062cc;
+    border-radius: 1.5rem;
+    width: 28%;
+    float: right;
+}
+.register .nav-tabs .nav-link{
+    padding: 2%;
+    height: 34px;
+    font-weight: 600;
+    color: white;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+}
+.register .nav-tabs .nav-link:hover{
+    border: none;
+}
+.register .nav-tabs .nav-link.active{
+    width: 100px;
+    color: #0062cc;
+    border: 2px solid #0062cc;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+}
+.register-heading{
+    text-align: center;
+    margin-top: 8%;
+    margin-bottom: -15%;
+    color: #495057;
+}
+table, th, td {
+  border: 1px solid black;
+  padding:10px;
+  margin:10px;
+  background-color:white;
+}
+th {
+  height: 50px;
+}td {
+  height: 30px;
+  vertical-align: bottom;
+}
+</style>
+
+<div class="container register">
+                <div class="row">
+                        
+                    <div class="col-md-3 register-left">
+                        <img src="https://www.adazing.com/wp-content/uploads/2019/02/stacked-book-clipart-06-300x300.png"/>
+                        <h3>OoOoOoPs</h3>
+                        <p>What Did You Do?</p>
+                        
+                    </div>
+                    
+
+
+                    <div class="col-md-9 register-right">
+                           
+                                
+                            <div class="tab-content" id="myTabContent">
+                                   
+                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                      
+                                       
+                                    <h3 class="register-heading">{{ message }}</h3>
+                                    <form method="POST" action="/stulogin">
+                                    <div class="row register-form">
+                                        <div class="col-md-6">
+                                            
+                                           
+                                        </div>
+                                        <div class="col-md-6"><input type="submit" class="btnRegister"  value="Go Back"/>
+                                     
+                                             <!-- <input type="button" class="btnRegister"  value="Mail US"/>-->
+                                        </div>
+                                         
+                                    </div>
+                                    </form>
+                                    <div id="sprdata">
+                                    </div>
+                                </div>
+                               
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
