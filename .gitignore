@@ -1,0 +1,9 @@
+# Cache
+__pycache__/
+
+# IDE
+.vscode/
+
+# Session data
+flask_session/*
+!flask_session/.empty
