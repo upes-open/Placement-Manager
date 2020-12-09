@@ -1,4 +1,3 @@
-from flask import Flask, render_template, request, flash
 from flask import Markup
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
@@ -6,8 +5,7 @@ import pprint
 from functools import wraps
 from flask import Response
 import os
-from flask import Flask, session, redirect, render_template, request, jsonify, flash
-from flask import Flask, session, render_template
+from flask import Flask, session, render_template, request, flash
 from flask_session import Session
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
