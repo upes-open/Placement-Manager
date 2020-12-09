@@ -118,7 +118,7 @@ def loginSubmit():
         rows = db.execute("SELECT * FROM data WHERE sapid = :sapid",
                             {"sapid": request.form.get("sapid")})
         result = rows.fetchone()
-        if result == None or not (result[1]==request.form.get("password")):
+        if result is None or not (result[1]==request.form.get("password")):
             return render_template("error.html", message="Invalid Username or Password")                
         session["sap_id"] = result[4]
         session["roll_no"] = result[5]
@@ -221,7 +221,7 @@ def updateProfile():
         rows = db.execute("SELECT * FROM data WHERE sapid = :sapid",
                             {"sapid": session["sap_id"]})
         result = rows.fetchone()
-        if result == None or not (result[1]==request.form.get("password")):
+        if result is None or not (result[1]==request.form.get("password")):
             return render_template("error.html", message="Invalid Username or Password")  
         
         # Insert register into DB
