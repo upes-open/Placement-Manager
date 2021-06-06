@@ -1,4 +1,3 @@
-from flask import Flask, render_template, request, flash
 from flask import Markup
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
@@ -6,8 +5,7 @@ import pprint
 from functools import wraps
 from flask import Response
 import os
-from flask import Flask, session, redirect, render_template, request, jsonify, flash
-from flask import Flask, session, render_template
+from flask import Flask, session, render_template, request, flash
 from flask_session import Session
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
@@ -103,10 +101,8 @@ def stats():
        
         return render_template("login.html",sprdata=tablecode)
 
-        
-       
-    else:
-        return render_template("login.html") 
+    return render_template("login.html") 
+
 @app.route("/student")
 def student_sec():
     return render_template("register.html")
@@ -117,12 +113,12 @@ def loginSubmit():
     if request.method == "POST":
         if not request.form.get("sapid"):
             return render_template("error.html", message="Please Provide SAPID")
-        elif not request.form.get("password"):
+        if not request.form.get("password"):
             return render_template("error.html", message="must provide password")
         rows = db.execute("SELECT * FROM data WHERE sapid = :sapid",
                             {"sapid": request.form.get("sapid")})
         result = rows.fetchone()
-        if result == None or not (result[1]==request.form.get("password")):
+        if result is None or not (result[1]==request.form.get("password")):
             return render_template("error.html", message="Invalid Username or Password")                
         session["sap_id"] = result[4]
         session["roll_no"] = result[5]
@@ -142,8 +138,8 @@ def loginSubmit():
         contact_value= session["contact_value"],
         email_value=session["email_value"]
         ) 
-    else:
-        return render_template("login.html")      
+
+    return render_template("login.html")      
 
 @app.route("/loginSubmit", methods=["GET", "POST"])
 @requires_auth
@@ -181,10 +177,7 @@ def showData():
         pendingStudents=pendingCount,
         raw_link="https://docs.google.com/spreadsheets/d/1MYiPmH67D8d7c6TibFEEyslkhYmdXz8697DU3VMgnfw/edit?usp=sharing")
 
-        
-       
-    else:
-        return render_template("login.html") 
+    return render_template("login.html") 
 
 @app.route("/stulogin", methods=["GET", "POST"])
 def stulogin():
@@ -199,8 +192,8 @@ def stulogin():
         contact_value= session["contact_value"],
         email_value=session["email_value"]
         )
-    else:
-        return render_template("stulogin.html")
+
+    return render_template("stulogin.html")
        
 @app.route("/updateProfile",methods=["GET", "POST"])
 def updateProfile():
@@ -228,7 +221,7 @@ def updateProfile():
         rows = db.execute("SELECT * FROM data WHERE sapid = :sapid",
                             {"sapid": session["sap_id"]})
         result = rows.fetchone()
-        if result == None or not (result[1]==request.form.get("password")):
+        if result is None or not (result[1]==request.form.get("password")):
             return render_template("error.html", message="Invalid Username or Password")  
         
         # Insert register into DB
@@ -280,21 +273,21 @@ def registerSubmit():
             return render_template("error.html", message="username already exists")
 
         # Ensure password was submitted
-        elif not request.form.get("password"):
+        if not request.form.get("password"):
             return render_template("error.html", message="Must provide password")
-        elif not request.form.get("sapid"):
+        if not request.form.get("sapid"):
             return render_template("error.html", message="Must provide SAPID")
-        elif not request.form.get("roll"):
+        if not request.form.get("roll"):
             return render_template("error.html", message="Must provide Roll")
-        elif not request.form.get("github"):
+        if not request.form.get("github"):
             return render_template("error.html", message="Must provide Github URL")
-        elif not request.form.get("resume"):
+        if not request.form.get("resume"):
             return render_template("error.html", message="Must provide Link to Resume")
 
-        elif not request.form.get("email"):
+        if not request.form.get("email"):
             return render_template("error.html", message="Please Enter Email")
 
-        elif not request.form.get("contact"):
+        if not request.form.get("contact"):
             return render_template("error.html", message="Please enter Contact")
 
         # Hash user's password to store in DB
@@ -321,8 +314,6 @@ def registerSubmit():
         return render_template("dashboard.html", message="Congratulations! You are Registered")
 
         # Redirect user to login page
-       
 
     # User reached route via GET (as by clicking a link or via redirect)
-    else:
-        return render_template("register.html")
+    return render_template("register.html")
